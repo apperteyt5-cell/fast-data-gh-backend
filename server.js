@@ -40,9 +40,11 @@ app.get('/api/supplier/balance', async (_req, res) => {
 
 app.get('/api/bundles', async (_req, res) => {
   try {
-    const response = await fetch(`${BASE_URL}/bundle`, {
-      method: 'GET',
-      headers: supplierHeaders()
+    const response = await fetch(`${BASE_URL}/bundles`, {
+      method: 'POST',
+      headers: supplierHeaders(),
+      body: JSON.stringify({})
+    
     });
     const data = await response.json();
     res.status(response.status).json(data);
